@@ -147,10 +147,11 @@ select:focus {
 
 
 .footbar {
-    display: grid;
+    display: flex;
     grid-area: footbar;
     align-self: flex-end;
-    text-align: center;
+    justify-content: center;
+    gap: 10px
 }
 
 
