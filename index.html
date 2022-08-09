@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+    <title>Library</title>
+</head>
+<body>
+
+    <!-- Top Nav -->
+    <div class="topNav">
+        <div class="logo">My Library</div>
+        <form class="form">
+            <div class="addBook">
+                <div class="bookName">
+                    <label for="book">Book</label>
+                    <input type="text" id="book">
+                </div>
+                <div class="authorName">
+                    <label for="author">Author</label>
+                    <input type="text" id="author">
+                </div>
+                <div class="currentStatus">
+                    <label for="status">Status</label>
+                    <select name="status" id="status">
+                        <option value="Read">Read</option>
+                        <option value="Not Read">Not Read</option>
+                    </select>
+                </div>
+            </div>
+            <input type="submit" value="submit" class="btn">Add Book</input>
+        </form> 
+    </div>
+
+    <!-- Content -->
+    <div class="mainContent" id="cards">
+        <div class="bookCard">
+            <h1 class="bookTitle">Book Name: OTHELLO</h1>
+            <p class="bookAuthor">Author Name: SHAKESPEARE</p>
+            <button class="bookStatus">Status: Read</button>
+            <button class="remove">Remove</button>
+        </div>
+        <div class="bookCard">
+            <h1 class="bookTitle">Book Name: ROMEO AND JULIET</h1>
+            <p class="bookAuthor">Author Name: SHAKESPEARE</p>
+            <button class="bookStatus">Status: Read</button>
+            <button class="remove">Remove</button>
+        </div>
+    </div>
+
+    <!-- Footbar -->
+    <div class="footbar">Copyright © 2022 @karakuscem</div>
+</body>
+</html>
