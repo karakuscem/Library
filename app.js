@@ -48,9 +48,9 @@ function clearForm() {
 
 // Function for change status.
 
-
 //Render
 function renderBooks() {
+    cardSection.innerHTML ="";
     for (let i = 0; i < library.length; i++) {
         const insertHTML = 
         `<div class="bookCard">
@@ -61,5 +61,4 @@ function renderBooks() {
         cardSection.insertAdjacentHTML("afterbegin", insertHTML);
     }
 }
-
-renderBooks();
+renderBooks()
