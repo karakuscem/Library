@@ -105,5 +105,14 @@ function renderBooks() {
         para.innerHTML = `Author Name: ${library[i].author}`;
         statusButton.innerHTML = library[i].status;
         rmvButton.innerHTML = "Remove"
+
+        if (statusButton.innerHTML == "Not Read") {
+            statusButton.classList.add("redButton")
+            div.classList.add("redBookCard");
+        }
+        else {
+            statusButton.classList.add("greenButton")
+            div.classList.add("greenBookCard");
+        }
     }
 }

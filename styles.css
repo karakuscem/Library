@@ -113,7 +113,6 @@ select:focus {
     flex-direction: column;
     background-color: rgb(187, 187, 187);
     border-radius: 10px;
-    border-left: 10px solid green;
 }
 
 .bookCard h1 {
@@ -139,11 +138,23 @@ select:focus {
     border: none;
 }
 
-.bookStatus {
+.greenButton {
     background-color: green;
     color: white;
 }
 
+.redButton {
+    background-color: red;
+    color: white;
+}
+
+.greenBookCard {
+    border-left: 10px solid green;
+}
+
+.redBookCard {
+    border-left: 10px solid red;
+}
 
 
 .footbar {
