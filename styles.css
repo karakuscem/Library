@@ -138,6 +138,7 @@ select:focus {
     width: clamp(100px, 10vw, 12vw);
     border-radius: 10px;
     border: none;
+    cursor: pointer;
 }
 
 .greenButton {
