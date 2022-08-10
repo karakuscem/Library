@@ -6,8 +6,10 @@ Simple Library application.
 
 -Can add books now.
 
+-Change status.
+
+-Delete books.
+
 ## Upcoming
 
 -Store information to local and cloud.
--Change status.
--Delete books.
