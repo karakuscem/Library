@@ -1,6 +1,7 @@
 // Define array and Select Objects
 
-let library = [];
+// Get local storage
+let library = JSON.parse(localStorage.getItem("library"));
 
 const bookName = document.querySelector("#book");
 const bookAuthor = document.querySelector("#author");
@@ -11,13 +12,20 @@ const cardStatus = document.querySelectorAll(".bookStatus");
 const removeButton = document.querySelectorAll(".remove");
 const cardSection = document.querySelector("#cards");
 
-// Add Event Listener
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    addBookLibrary();
-    renderBooks();
-    clearForm();
-});
+// If there is no storage make it else render storage
+const startApp = () => {
+    if(!library){
+        library = localStorage.setItem("library", JSON.stringify([]));
+    }
+    else{
+        library = JSON.parse(localStorage.getItem("library"));
+        renderBooks();
+    }
+}
+
+// Start app
+startApp();
+
 
 // Add Functions
 // Constructor
@@ -37,7 +45,9 @@ function addBookLibrary() {
     }
     
     const newBook = new Book(bookName.value, bookAuthor.value, bookStatus.value)
-    library.push(newBook);
+    library = JSON.parse(localStorage.getItem("library"));
+    library.push(newBook)
+    localStorage.setItem("library", JSON.stringify(library));
 }
 
 // Function for clear form.
@@ -45,8 +55,6 @@ function clearForm() {
     bookName.value = "";
     bookAuthor.value = "";
 }
-
-// Function for change status.
 
 
 //Render
@@ -75,12 +83,14 @@ function renderBooks() {
             let statusToChange = statusButton.dataset.id;
             if (library[parseInt(statusToChange)].status === "Read") {
                 library[parseInt(statusToChange)].status = "Not Read";
+                localStorage.setItem("library", JSON.stringify(library));
                 statusButton.innerHTML = "Not Read";
                 statusButton.style.backgroundColor = "red";
                 div.style.borderLeft = "10px solid red";
             }
             else {
                 library[parseInt(statusToChange)].status = "Read";
+                localStorage.setItem("library", JSON.stringify(library));
                 statusButton.innerHTML = "Read";
                 statusButton.style.backgroundColor = "green";
                 div.style.borderLeft = "10px solid green";
@@ -97,6 +107,7 @@ function renderBooks() {
             let bookToRemove = rmvButton.dataset.id;
             if (confirm(`Are you sure to delete ${title.innerHTML} ?`)) {
                 library.splice(parseInt(bookToRemove), 1);
+                localStorage.setItem("library", JSON.stringify(library));
                 renderBooks();
             }
         }
@@ -116,3 +127,10 @@ function renderBooks() {
         }
     }
 }
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    addBookLibrary();
+    renderBooks();
+    clearForm();
+});
