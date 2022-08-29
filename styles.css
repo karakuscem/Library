@@ -1,171 +1,167 @@
-@import url('https://fonts.googleapis.com/css2?family=Gentium+Book+Basic&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Gentium+Book+Basic&display=swap");
 
 :root {
-    font-size: 1.2rem;
-    font-family: 'Gentium Book Basic', serif;
-    --primary-bg: rgb(245, 244, 244);
-    --secondary-bg: rgb(252, 252, 252);
-    --primary-text: black;
+  font-size: 1.2rem;
+  font-family: "Gentium Book Basic", serif;
+  --primary-bg: rgb(245, 244, 244);
+  --secondary-bg: rgb(252, 252, 252);
+  --primary-text: black;
 }
 
 body {
-    height: 100vh;
-    width: 100vw;
-    display: grid;
-    grid-template-areas: 
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-areas:
     "navbar navbar navbar"
     "mainContent mainContent mainContent"
     "footbar footbar footbar";
-    grid-template-rows: 1fr 3fr 1fr;
+  grid-template-rows: 1fr 3fr 1fr;
 }
 
 .topNav {
-    display: grid;
-    grid-area: navbar;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--secondary-bg);
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-    margin-top: 15px;
-    position: sticky;
-    top: 0;
+  display: grid;
+  grid-area: navbar;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--secondary-bg);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  margin-top: 15px;
+  position: sticky;
+  top: 0;
 }
 
 .logo {
-    font-size: 2rem;
-    text-align: center;
-    color: rgb(97, 26, 26);
-    font-weight: bold;
+  font-size: 2rem;
+  text-align: center;
+  color: rgb(97, 26, 26);
+  font-weight: bold;
 }
 
 .form {
-    display: grid;
-    grid-template-areas: 
+  display: grid;
+  grid-template-areas:
     "bookName bookName authorName authorName currentStatus currentStatus"
     "submit";
-    text-align: center;
-    margin-top: 20px;
-    width: clamp(100px, 22vw, 325px);
+  text-align: center;
+  margin-top: 20px;
+  width: clamp(100px, 22vw, 325px);
 }
 
 .bookName {
-    display: grid;
-    grid-area: bookName;
+  display: grid;
+  grid-area: bookName;
 }
 
 .authorName {
-    display: grid;
-    grid-area: authorName;
+  display: grid;
+  grid-area: authorName;
 }
 
 .currentStatus {
-    display: grid;
-    grid-area: currentStatus;
+  display: grid;
+  grid-area: currentStatus;
 }
 
 label {
-    margin-bottom: 5px;
-    column-span: all;
+  margin-bottom: 5px;
+  column-span: all;
 }
 
 input {
-    margin-bottom: 5px;
-    height: 3vh;
-    border-radius: 10px;
-    border: 1px solid gray;
+  margin-bottom: 5px;
+  height: 3vh;
+  border-radius: 10px;
+  border: 1px solid gray;
 }
 
 input:focus {
-    outline: none;
-    border: 2px solid rgb(223, 109, 3);
+  outline: none;
+  border: 2px solid rgb(223, 109, 3);
 }
 
 select {
-    margin-bottom: 10px;
-    border-radius: 10px;
-    height: 30px;
-    text-align: center;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  height: 30px;
+  text-align: center;
 }
 
 select:focus {
-    outline: none;
-    border: 2px solid rgb(223, 109, 3);
+  outline: none;
+  border: 2px solid rgb(223, 109, 3);
 }
 
 .btn {
-    height: 30px;
-    border-radius: 15px;
-    border: 1px solid gray;
-    margin-bottom: 20px;
+  height: 30px;
+  border-radius: 15px;
+  border: 1px solid gray;
+  margin-bottom: 20px;
 }
 
-
 .mainContent {
-    display: grid;
-    grid-area: mainContent;
-    margin: 2rem 2rem 2rem 2rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 15px;
+  display: grid;
+  grid-area: mainContent;
+  margin: 2rem 2rem 2rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 15px;
 }
 
 .bookCard {
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(187, 187, 187);
-    border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(187, 187, 187);
+  border-radius: 10px;
 }
 
 .bookCard h1 {
-    font-size: 1rem;
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .bookCard p {
-    font-size: 0.8rem;
-    text-align: center;
-    margin-bottom: 10px;
+  font-size: 0.8rem;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 .bookStatus,
 .remove {
-    align-self: center;
-    margin-bottom: 10px;
-    height: 1.5rem;
-    width: clamp(100px, 10vw, 12vw);
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
+  align-self: center;
+  margin-bottom: 10px;
+  height: 1.5rem;
+  width: clamp(100px, 10vw, 12vw);
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
 }
 
 .greenButton {
-    background-color: green;
-    color: white;
+  background-color: green;
+  color: white;
 }
 
 .redButton {
-    background-color: red;
-    color: white;
+  background-color: red;
+  color: white;
 }
 
 .greenBookCard {
-    border-left: 10px solid green;
+  border-left: 10px solid green;
 }
 
 .redBookCard {
-    border-left: 10px solid red;
+  border-left: 10px solid red;
 }
-
 
 .footbar {
-    display: flex;
-    grid-area: footbar;
-    align-self: flex-end;
-    justify-content: center;
-    gap: 10px
+  display: flex;
+  grid-area: footbar;
+  align-self: flex-end;
+  justify-content: center;
+  gap: 10px;
 }
-
-
