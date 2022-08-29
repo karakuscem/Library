@@ -10,6 +10,8 @@ Simple Library application.
 
 -Delete books.
 
+-Store data to Local Storage
+
 ## Upcoming
 
--Store information to local and cloud.
+-Store data to cloud.
