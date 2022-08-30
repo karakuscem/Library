@@ -28,12 +28,6 @@ class Book {
 
 // Add book to library
 function addBookLibrary() {
-  if (bookName.value.length === 0 || bookAuthor.value.length === 0) {
-    // eslint-disable-next-line no-alert
-    alert('Please fill all the fields.');
-    return;
-  }
-
   const newBook = new Book(bookName.value, bookAuthor.value, bookStatus.value);
   library = JSON.parse(localStorage.getItem('library'));
   library.push(newBook);
@@ -126,11 +120,25 @@ const startApp = () => {
   }
 };
 
-startApp();
+// eslint-disable-next-line no-unused-vars
+function formValidate() {
+  if (!bookName.checkValidity()) {
+    bookName.placeholder = bookName.validationMessage;
+  } else if (!bookAuthor.checkValidity()) {
+    bookAuthor.placeholder = bookAuthor.validationMessage;
+  } else if (!bookStatus.checkValidity()) {
+    bookStatus.options[0].innerHTML = bookStatus.validationMessage;
+  } else {
+    form.addEventListener('submit', (e) => {
+      bookName.placeholder = '';
+      bookAuthor.placeholder = '';
+      bookStatus.options[0].innerHTML = 'Select Status';
+      e.preventDefault();
+      addBookLibrary();
+      renderBooks();
+      clearForm();
+    });
+  }
+}
 
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  addBookLibrary();
-  renderBooks();
-  clearForm();
-});
+startApp();

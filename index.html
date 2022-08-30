@@ -21,21 +21,22 @@
         <div class="addBook">
           <div class="bookName">
             <label for="book">Book</label>
-            <input type="text" id="book" />
+            <input type="text" id="book" maxlength="50" required/>
           </div>
           <div class="authorName">
             <label for="author">Author</label>
-            <input type="text" id="author" />
+            <input type="text" id="author" maxlength="50" required/>
           </div>
           <div class="currentStatus">
             <label for="status">Status</label>
-            <select name="status" id="status">
+            <select name="status" id="status" required>
+              <option value = "" disabled selected>Select Status</option>
               <option value="Read">Read</option>
               <option value="Not Read">Not Read</option>
             </select>
           </div>
         </div>
-        <input type="submit" value="Add Book" class="btn" />
+        <button onclick="formValidate()" type="submit" class="btn">Add Book</button>
       </form>
     </div>
 
