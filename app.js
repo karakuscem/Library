@@ -28,10 +28,12 @@ class Book {
 
 // Add book to library
 function addBookLibrary() {
-  const newBook = new Book(bookName.value, bookAuthor.value, bookStatus.value);
-  library = JSON.parse(localStorage.getItem('library'));
-  library.push(newBook);
-  localStorage.setItem('library', JSON.stringify(library));
+  if (bookName.value !== '' || bookAuthor.value !== '' || bookStatus.value !== '') {
+    const newBook = new Book(bookName.value, bookAuthor.value, bookStatus.value);
+    library = JSON.parse(localStorage.getItem('library'));
+    library.push(newBook);
+    localStorage.setItem('library', JSON.stringify(library));
+  }
 }
 
 // Function for clear form.
@@ -130,13 +132,14 @@ function formValidate() {
     bookStatus.options[0].innerHTML = bookStatus.validationMessage;
   } else {
     form.addEventListener('submit', (e) => {
-      bookName.placeholder = '';
-      bookAuthor.placeholder = '';
-      bookStatus.options[0].innerHTML = 'Select Status';
       e.preventDefault();
       addBookLibrary();
       renderBooks();
       clearForm();
+      bookName.placeholder = '';
+      bookAuthor.placeholder = '';
+      bookStatus.options[0].innerHTML = 'Select Status';
+      bookStatus.selectedIndex = '0';
     });
   }
 }
