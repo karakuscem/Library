@@ -124,15 +124,15 @@ const startApp = () => {
 
 // eslint-disable-next-line no-unused-vars
 function formValidate() {
-  if (!bookName.checkValidity()) {
-    bookName.placeholder = bookName.validationMessage;
-  } else if (!bookAuthor.checkValidity()) {
-    bookAuthor.placeholder = bookAuthor.validationMessage;
-  } else if (!bookStatus.checkValidity()) {
-    bookStatus.options[0].innerHTML = bookStatus.validationMessage;
-  } else {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!bookName.checkValidity()) {
+      bookName.placeholder = bookName.validationMessage;
+    } else if (!bookAuthor.checkValidity()) {
+      bookAuthor.placeholder = bookAuthor.validationMessage;
+    } else if (!bookStatus.checkValidity()) {
+      bookStatus.options[0].innerHTML = bookStatus.validationMessage;
+    } else {
       addBookLibrary();
       renderBooks();
       clearForm();
@@ -140,8 +140,8 @@ function formValidate() {
       bookAuthor.placeholder = '';
       bookStatus.options[0].innerHTML = 'Select Status';
       bookStatus.selectedIndex = '0';
-    });
-  }
+    }
+  });
 }
 
 startApp();
